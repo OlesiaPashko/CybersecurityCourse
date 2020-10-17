@@ -11,3 +11,16 @@ C:\Users\User\source\repos\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.csproj.C
 C:\Users\User\source\repos\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.dll
 C:\Users\User\source\repos\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.pdb
 C:\Users\User\source\repos\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.genruntimeconfig.cache
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\bin\Debug\netcoreapp3.1\Decode.exe
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\bin\Debug\netcoreapp3.1\Decode.deps.json
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\bin\Debug\netcoreapp3.1\Decode.runtimeconfig.json
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\bin\Debug\netcoreapp3.1\Decode.runtimeconfig.dev.json
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\bin\Debug\netcoreapp3.1\Decode.dll
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\bin\Debug\netcoreapp3.1\Decode.pdb
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.csprojAssemblyReference.cache
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.AssemblyInfoInputs.cache
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.AssemblyInfo.cs
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.csproj.CoreCompileInputs.cache
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.dll
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.pdb
+C:\Users\User\4 курс\CybersecurityCourse\Decode\Decode\obj\Debug\netcoreapp3.1\Decode.genruntimeconfig.cache

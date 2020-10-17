@@ -11,30 +11,29 @@ namespace Decode
     {
         static void Main(string[] args)
         {
-            //string text1 = File.ReadAllText(@"C:\Users\User\source\repos\Decode\text.txt");
+            //string text1 = File.ReadAllText(@"C:\Users\User\4 курс\CybersecurityCourse\Decode\text.txt");
             //Decrypt(Encoding.UTF8.GetBytes(text1));
-            string text2 = File.ReadAllText(@"C:\Users\User\source\repos\Decode\text2.txt");
+            string text2 = File.ReadAllText(@"C:\Users\User\4 курс\CybersecurityCourse\Decode\text2.txt");
             //Console.WriteLine(text2.Length);
             byte[] textBytes = Enumerable.Range(0, text2.Length)
                     .Where(x => x % 2 == 0)
                     .Select(x => Convert.ToByte(text2.Substring(x, 2), 16))
                     .ToArray();
             int keyLength = GetKeyLength(textBytes, 0.01);
-            Console.WriteLine(keyLength);
             List<List<byte>> slices = GetSlicesByKeyLength(keyLength, textBytes);
             List<string> decryptedSlices = new List<string>();
-            //foreach(var slice in slices)
-            //{
-                //decryptedSlices.Add(Decrypt(slices[2].ToArray()));
-            //}
-            //Console.WriteLine(JoinDecryptedSlices(decryptedSlices, keyLength));
+            foreach(var slice in slices)
+            {
+                decryptedSlices.Add(Decrypt(slice.ToArray()));
+            }
+            Console.WriteLine(JoinDecryptedSlices(decryptedSlices, keyLength));
         }
 
         private static string JoinDecryptedSlices(List<string> slices, int keyLength)
         {
             StringBuilder result = new StringBuilder();
-
-            for (int i = 0; i < slices[0].Length; i++)
+     
+            for (int i = 0; i < GetMinLenght(slices); i++)
             {
                 for (int j = 0; j < keyLength; j++)
                 {
@@ -43,6 +42,17 @@ namespace Decode
             }
             return result.ToString();
         }
+
+        private static int GetMinLenght(List<string> list)
+        {
+            int minLength = list[0].Length;
+            foreach(var str in list)
+            {
+                if (minLength > str.Length)
+                    minLength = str.Length;
+            }
+            return minLength;
+        } 
 
         private static List<List<byte>> GetSlicesByKeyLength(int keyLength, byte[] text)
         {
@@ -112,16 +122,9 @@ namespace Decode
                 }
                 decriptedChi2s.Add(GetChi2(outText.ToString()));
                 outTexts.Add(outText.ToString());
-                //Console.WriteLine(i);
-                //Console.WriteLine(outText.ToString());
-                //Console.ReadLine();
             }
 
             int minIndex = GetMinIndex(decriptedChi2s);
-            Console.WriteLine("Decripted text : ");
-            Console.WriteLine(outTexts[minIndex]);
-            Console.WriteLine("Index = " + minIndex);
-            Console.WriteLine("Chi2 is " + decriptedChi2s[minIndex]);
             return outTexts[minIndex];
         }
 
@@ -141,6 +144,7 @@ namespace Decode
         }
         public static double GetChi2(string text)
         {
+            
             var english_freq = new List<double>() {
             0.08167, 0.01492, 0.02782, 0.04253, 0.12702, 0.02228, 0.02015,  // A-G
             0.06094, 0.06966, 0.00153, 0.00772, 0.04025, 0.02406, 0.06749,  // H-N
@@ -161,8 +165,8 @@ namespace Decode
                     count[c - 97]++;  // lowercase a-z
                 else if (c >= 32 && c <= 126)
                     ignored++;        // numbers and punct.
-                else
-                    ignored++;  // TAB, CR, LF
+                else if (!(c == 0x80 || c == 0x99 || c == 0xe2))
+                    return float.MaxValue;
             }
             double chi2 = 0;
             int len = text.Length - ignored;

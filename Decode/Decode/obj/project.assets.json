@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\source\\repos\\Decode\\Decode\\Decode.csproj",
+      "projectUniqueName": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\Decode.csproj",
       "projectName": "Decode",
-      "projectPath": "C:\\Users\\User\\source\\repos\\Decode\\Decode\\Decode.csproj",
+      "projectPath": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\Decode.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\source\\repos\\Decode\\Decode\\obj\\",
+      "outputPath": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
