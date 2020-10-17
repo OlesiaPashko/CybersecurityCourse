@@ -1,20 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
-namespace Decode
+namespace Lab1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            //string text1 = File.ReadAllText(@"C:\Users\User\4 курс\CybersecurityCourse\Decode\text.txt");
-            //Decrypt(Encoding.UTF8.GetBytes(text1));
+            Console.WriteLine("-----Task 2-----------");
+            var decrypted2 = Decrypt1_2();
+            Console.WriteLine(decrypted2);
+            Console.WriteLine("-----Task 3-----------");
+            var decrypted3 = Decrypt1_3();
+            Console.WriteLine(decrypted3);
+        }
+
+        public static string Decrypt1_2()
+        {
+            string text = File.ReadAllText(@"C:\Users\User\4 курс\CybersecurityCourse\Decode\text.txt");
+            string decripted = Decrypt(Encoding.UTF8.GetBytes(text));
+            return decripted;
+        }
+
+        private static string Decrypt1_3()
+        {
             string text2 = File.ReadAllText(@"C:\Users\User\4 курс\CybersecurityCourse\Decode\text2.txt");
-            //Console.WriteLine(text2.Length);
             byte[] textBytes = Enumerable.Range(0, text2.Length)
                     .Where(x => x % 2 == 0)
                     .Select(x => Convert.ToByte(text2.Substring(x, 2), 16))
@@ -22,17 +37,16 @@ namespace Decode
             int keyLength = GetKeyLength(textBytes, 0.01);
             List<List<byte>> slices = GetSlicesByKeyLength(keyLength, textBytes);
             List<string> decryptedSlices = new List<string>();
-            foreach(var slice in slices)
+            foreach (var slice in slices)
             {
                 decryptedSlices.Add(Decrypt(slice.ToArray()));
             }
-            Console.WriteLine(JoinDecryptedSlices(decryptedSlices, keyLength));
+            return JoinDecryptedSlices(decryptedSlices, keyLength);
         }
 
         private static string JoinDecryptedSlices(List<string> slices, int keyLength)
         {
             StringBuilder result = new StringBuilder();
-     
             for (int i = 0; i < GetMinLenght(slices); i++)
             {
                 for (int j = 0; j < keyLength; j++)
@@ -40,6 +54,7 @@ namespace Decode
                     result.Append(slices[j][i]);
                 }
             }
+            result.Append(slices[0][slices[0].Length - 1]);
             return result.ToString();
         }
 

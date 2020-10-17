@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\Decode.csproj",
-      "projectName": "Decode",
-      "projectPath": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\Decode.csproj",
+      "projectUniqueName": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\Lab1.csproj",
+      "projectName": "Lab1",
+      "projectPath": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\Lab1.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\4 курс\\CybersecurityCourse\\Decode\\Decode\\obj\\",
       "projectStyle": "PackageReference",
