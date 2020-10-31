@@ -10,22 +10,57 @@ namespace Lab1
     public class Genetic
     {
         private char[] alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-        private Dictionary<char, char> key = new Dictionary<char, char>();
+        private Dictionary<string, decimal> threegrams = new Dictionary<string, decimal>();
+
+        public void ReadThreegrams()
+        {
+            string[] text = File.ReadAllLines(@".\..\..\..\3grams.txt");
+            foreach(var line in text)
+            {
+                string key = line.Substring(0, 3);
+                string value = line.Substring(5, line.Length - 5);
+                threegrams.Add(key.ToUpper(), decimal.Parse(value));
+            }
+        }
+
+        public List<string> ParseThreegrams(string text)
+        {
+            List<string> threegrams = new List<string>();
+            for(int i = 0; i < text.Length-2; i++)
+            {
+                threegrams.Add(text.Substring(i, 3));
+            }
+            return threegrams;
+        }
+
+        private decimal EstimateBasedOfThreegrams(string populationItem)
+        {
+            List<string> threegrams = ParseThreegrams(DecryptSubstitution(File.ReadAllText(@".\..\..\..\text3.txt"), populationItem));
+            decimal estimation = 0;
+            foreach(var threegram in threegrams)
+            {
+                estimation += this.threegrams[threegram];
+            }
+            Console.WriteLine("estimation = " + estimation);
+            return estimation;
+        }
+
         public string Decrypt()
         {
             int generation = 0;
             string text = File.ReadAllText(@".\..\..\..\text3.txt");
-            List<string> population = GetFirstPopulation(10);
+            ReadThreegrams();
+            List<string> population = GetFirstPopulation(1000);
             do
             {
                 Console.WriteLine(generation);
-                List<string> bestFromPopulation = GetBest(population, 2);
+                List<string> bestFromPopulation = GetBest(population, 10);
                 List<string> children = Crossing(bestFromPopulation);
                 MutatePopulation(children);
                 population = children;
                 generation++;
                 Console.WriteLine(DecryptSubstitution(text, GetBest(population, 1)[0]));
-            } while (generation < 100);
+            } while (generation < 1000);
             string decrypted = DecryptSubstitution(text, GetBest(population, 1)[0]);
             return decrypted;
         }
@@ -77,12 +112,12 @@ namespace Lab1
             return TextEstimator.Chi2(DecryptSubstitution(File.ReadAllText(@".\..\..\..\text3.txt"), populationItem));
         }
 
-        private List<double> EstimatePopulation(List<string> population)
+        private List<decimal> EstimatePopulation(List<string> population)
         {
-            List<double> estimates = new List<double>();
+            List<decimal> estimates = new List<decimal>();
             foreach (var item in population)
             {
-                estimates.Add(EstimatePopulationItem(item));
+                estimates.Add(EstimateBasedOfThreegrams(item));
             }
             return estimates;
         }
@@ -90,10 +125,10 @@ namespace Lab1
         private List<string> GetBest(List<string> population, int aliveCount)
         {
             List<string> bestItems = new List<string>();
-            List<double> estimates = EstimatePopulation(population);
+            List<decimal> estimates = EstimatePopulation(population);
             for (int i = 0; i < aliveCount; i++)
             {
-                int maxIndex = GetMinIndex(estimates);
+                int maxIndex = GetMaxIndex(estimates);
 
                 bestItems.Add(population[maxIndex]);
                 estimates.RemoveAt(maxIndex);
@@ -101,15 +136,15 @@ namespace Lab1
             return bestItems;
         }
 
-        private int GetMinIndex(List<double> list)
+        private int GetMaxIndex(List<decimal> list)
         {
             int index = 0;
-            double min = double.MaxValue;
+            decimal max = decimal.MinValue;
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i] < min)
+                if (list[i] > max)
                 {
-                    min = list[i];
+                    max = list[i];
                     index = i;
                 }
             }
@@ -143,12 +178,9 @@ namespace Lab1
         private string Mutate(string item)
         {
             Random random = new Random();
-            for (int i = 0; i < 4; i++)
-            {
-                int index1 = random.Next(item.Length);
-                int index2 = random.Next(item.Length);
-                item = Swap(index1, index2, item);
-            }
+            int index1 = random.Next(item.Length);
+            int index2 = random.Next(item.Length);
+            item = Swap(index1, index2, item);
             return item;
         }
 
