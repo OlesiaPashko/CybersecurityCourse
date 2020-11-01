@@ -11,16 +11,24 @@ namespace Lab1
 {
     public class Genetic
     {
+        private string mobyDick= "ButhereisanartistHedesirestopaintyouthedreamiestshadiestquietestmostenchantingbitofromanticlandscapeinallthevalleyoftheSacoWhatisthechiefelementheemploysTherestandhistreeseachwithahollowtrunkasifahermitandacrucifixwerewithinandheresleepshismeadowandtheresleephiscattleandupfromyondercottagegoesasleepysmokeDeepintodistantwoodlandswindsamazywayreachingtooverlappingspursofmountainsbathedintheirhillsideblueButthoughthepictureliesthustrancedandthoughthispinetreeshakesdownitssighslikeleavesuponthisshepherdsheadyetallwerevainunlesstheshepherdseyewerefixeduponthemagicstreambeforehimGovisitthePrairiesinJunewhenforscoresonscoresofmilesyouwadekneedeepamongTigerlilieswhatistheonecharmwantingWaterthereisnotadropofwaterthereWereNiagarabutacataractofsandwouldyoutravelyourthousandmilestoseeitWhydidthepoorpoetofTennesseeuponsuddenlyreceivingtwohandfulsofsilverdeliberatewhethertobuyhimacoatwhichhesadlyneededorinvesthismoneyinapedestriantriptoRockawayBeachWhyisalmosteveryrobusthealthyboywitharobusthealthysoulinhimatsometimeorothercrazytogotoseaWhyuponyourfirstvoyageasapassengerdidyouyourselffeelsuchamysticalvibrationwhenfirsttoldthatyouandyourshipwerenowoutofsightoflandWhydidtheoldPersiansholdtheseaholyWhydidtheGreeksgiveitaseparatedeityandownbrotherofJoveSurelyallthisisnotwithoutmeaningAndstilldeeperthemeaningofthatstoryofNarcissuswhobecausehecouldnotgraspthetormentingmildimagehesawinthefountainplungedintoitandwasdrownedButthatsameimageweourselvesseeinallriversandoceansItistheimageoftheungraspablephantomoflifeandthisisthekeytoitallNowwhenIsaythatIaminthehabitofgoingtoseawheneverIbegintogrowhazyabouttheeyesandbegintobeoverconsciousofmylungsIdonotmeantohaveitinferredthatIevergotoseaasapassengerFortogoasapassengeryoumustneedshaveapurseandapurseisbutaragunlessyouhavesomethinginitBesidespassengersgetseasickgrowquarrelsomedontsleepofnightsdonotenjoythemselvesmuchasageneralthingnoInevergoasapassengernorthoughIamsomethingofasaltdoIevergotoseaasaCommodoreoraCaptainoraCookIabandonthegloryanddistinctionofsuchofficestothosewholikethemFormypartIabominateallhonourablerespectabletoilstrialsandtribulationsofeverykindwhatsoeverItisquiteasmuchasIcandototakecareofmyselfwithouttakingcareofshipsbarquesbrigsschoonersandwhatnotAndasforgoingascookthoughIconfessthereisconsiderablegloryinthatacookbeingasortofofficeronshipboardyetsomehowIneverfanciedbroilingfowlsthoughoncebroiledjudiciouslybutteredandjudgmaticallysaltedandpepperedthereisnoonewhowillspeakmorerespectfullynottosayreverentiallyofabroiledfowlthanIwillItisoutoftheidolatrousdotingsoftheoldEgyptiansuponbroiledibisandroastedriverhorsethatyouseethemummiesofthosecreaturesintheirhugebakehousesthepyramidsNowhenIgotoseaIgoasasimplesailorrightbeforethemastplumbdownintotheforecastlealofttheretotheroyalmastheadTruetheyratherordermeaboutsomeandmakemejumpfromspartosparlikeagrasshopperinaMaymeadowAndatfirstthissortofthingisunpleasantenoughIttouchesonessenseofhonourparticularlyifyoucomeofanoldestablishedfamilyinthelandtheVanRensselaersorRandolphsorHardicanutesAndmorethanallifjustprevioustoputtingyourhandintothetarpotyouhavebeenlordingitasacountryschoolmastermakingthetallestboysstandinaweofyouThetransitionisakeenoneIassureyoufromaschoolmastertoasailorandrequiresastrongdecoctionofSenecaandtheStoicstoenableyoutogrinandbearitButeventhiswearsoffintimeWhatofitifsomeoldhunksofaseacaptainordersmetogetabroomandsweepdownthedecksWhatdoesthatindignityamounttoweighedImeaninthescalesoftheNewTestamentDoyouthinkthearchangelGabrielthinksanythingthelessofmebecauseIpromptlyandrespectfullyobeythatoldhunksinthatparticularinstanceWhoaintaslaveTellmethatWellthenhowevertheoldseacaptainsmayordermeabouthowevertheymaythumpandpunchmeaboutIhavethesatisfactionofknowingthatitisallrightthateverybodyelseisonewayorotherservedinmuchthesamewayeitherinaphysicalormetaphysicalpointofviewthatisandsotheuniversalthumpispassedroundandallhandsshouldrubeachothersshoulderbladesandbecontentAgainIalwaysgotoseaasasailorbecausetheymakeapointofpayingmeformytroublewhereastheyneverpaypassengersasinglepennythatIeverheardofOnthecontrarypassengersthemselvesmustpayAndthereisallthedifferenceintheworldbetweenpayingandbeingpaidTheactofpayingisperhapsthemostuncomfortableinflictionthatthetwoorchardthievesentaileduponusButBEINGPAIDwhatwillcomparewithitTheurbaneactivitywithwhichamanreceivesmoneyisreallymarvellousconsideringthatwesoearnestlybelievemoneytobetherootofallearthlyillsandthatonnoaccountcanamoniedmanenterheavenAhhowcheerfullyweconsignourselvestoperditionFinallyIalwaysgotoseaasasailorbecauseofthewholesomeexerciseandpureairoftheforecastledeckForasinthisworldheadwindsarefarmoreprevalentthanwindsfromasternthatisifyouneverviolatethePythagoreanmaximsoforthemostparttheCommodoreonthequarterdeckgetshisatmosphereatsecondhandfromthesailorsontheforecastleHethinkshebreathesitfirstbutnotsoInmuchthesamewaydothecommonaltyleadtheirleadersinmanyotherthingsatthesametimethattheleaderslittlesuspectitButwhereforeitwasthatafterhavingrepeatedlysmelttheseaasamerchantsailorIshouldnowtakeitintomyheadtogoonawhalingvoyagethistheinvisiblepoliceofficeroftheFateswhohastheconstantsurveillanceofmeandsecretlydogsmeandinfluencesmeinsomeunaccountablewayhecanbetteranswerthananyoneelseAnddoubtlessmygoingonthiswhalingvoyageformedpartofthegrandprogrammeofProvidencethatwasdrawnupalongtimeagoItcameinasasortofbriefinterludeandsolobetweenmoreextensiveperformancesItakeitthatthispartofthebillmusthaverunsomethinglikethisGRANDCONTESTEDELECTIONFORTHEPRESIDENCYOFTHEUNITEDSTATESWHALINGVOYAGEBYONEISHMAELBLOODYBATTLEINAFFGHANISTANThoughIcannottellwhyitwasexactlythatthosestagemanagerstheFatesputmedownforthisshabbypartofawhalingvoyagewhenothersweresetdownformagnificentpartsinhightragediesandshortandeasypartsingenteelcomediesandjollypartsinfarcesthoughIcannottellwhythiswasexactlyyetnowthatIrecallallthecircumstancesIthinkIcanseealittleintothespringsandmotiveswhichbeingcunninglypresentedtomeundervariousdisguisesinducedmetosetaboutperformingthepartIdidbesidescajolingmeintothedelusionthatitwasachoiceresultingfrommyownunbiasedfreewillanddiscriminatingjudgmentChiefamongthesemotiveswastheoverwhelmingideaofthegreatwhalehimselfSuchaportentousandmysteriousmonsterrousedallmycuriosityThenthewildanddistantseaswhereherolledhisislandbulktheundeliverablenamelessperilsofthewhalethesewithalltheattendingmarvelsofathousandPatagoniansightsandsoundshelpedtoswaymetomywishWithothermenperhapssuchthingswouldnothavebeeninducementsbutasformeIamtormentedwithaneverlastingitchforthingsremoteIlovetosailforbiddenseasandlandonbarbarouscoastsNotignoringwhatisgoodIamquicktoperceiveahorrorandcouldstillbesocialwithitwouldtheyletmesinceitisbutwelltobeonfriendlytermswithalltheinmatesoftheplaceonelodgesinByreasonofthesethingsthenthewhalingvoyagewaswelcomethegreatfloodgatesofthewonderworldswungopenandinthewildconceitsthatswayedmetomypurposetwoandtwotherefloatedintomyinmostsoulendlessprocessionsofthewhaleandmidmostofthemallonegrandhoodedphantomlikeasnowhillintheairCHAPTERTheCarpetBagIstuffedashirtortwointomyoldcarpetbagtuckeditundermyarmandstartedforCapeHornandthePacificQuittingthegoodcityofoldManhattoIdulyarrivedinNewBedfordItwasaSaturdaynightinDecemberMuchwasIdisappointeduponlearningthatthelittlepacketforNantuckethadalreadysailedandthatnowayofreachingthatplacewouldoffertillthefollowingMondayAsmostyoungcandidatesforthepainsandpenaltiesofwhalingstopatthissameNewBedfordthencetoembarkontheirvoyageitmayaswellberelatedthatIforonehadnoideaofsodoingFormymindwasmadeuptosailinnootherthanaNantucketcraftbecausetherewasafineboisteroussomethingabouteverythingconnectedwiththatfamousoldislandwhichamazinglypleasedmeBesidesthoughNewBedfordhasoflatebeengraduallymonopolisingthebusinessofwhalingandthoughinthismatterpooroldNantucketisnowmuchbehindheryetNantucketwashergreatoriginaltheTyreofthisCarthagetheplacewherethefirstdeadAmericanwhalewasstrandedWhereelsebutfromNantucketdidthoseaboriginalwhalementheRedMenfirstsallyoutincanoestogivechasetotheLeviathanAndwherebutfromNantuckettoodidthatfirstadventurouslittlesloopputforthpartlyladenwithimportedcobblestonessogoesthestorytothrowatthewhalesinordertodiscoverwhentheywerenighenoughtoriskaharpoonfromthebowspritNowhavinganightadayandstillanothernightfollowingbeforemeinNewBedfordereIcouldembarkformydestinedportitbecameamatterofconcernmentwhereIwastoeatandsleepmeanwhileItwasaverydubiouslookingnayaverydarkanddismalnightbitinglycoldandcheerlessIknewnooneintheplaceWithanxiousgrapnelsIhadsoundedmypocketandonlybroughtupafewpiecesofsilverSowhereveryougoIshmaelsaidItomyselfasIstoodinthemiddleofadrearystreetshoulderingmybagandcomparingthegloomtowardsthenorthwiththedarknesstowardsthesouthwhereverinyourwisdomyoumayconcludetolodgeforthenightmydearIshmaelbesuretoinquirethepriceanddontbetooparticularWithhaltingstepsIpacedthestreetsandpassedthesignofTheCrossedHarpoonsbutitlookedtooexpensiveandjollythereFurtheronfromthebrightredwindowsoftheSwordFishInntherecamesuchferventraysthatitseemedtohavemeltedthepackedsnowandicefrombeforethehouseforeverywhereelsethecongealedfrostlayteninchesthickinahardasphalticpavementratherwearyformewhenIstruckmyfootagainsttheflintyprojectionsbecausefromhardremorselessservicethesolesofmybootswereinamostmiserableplightTooexpensiveandjollyagainthoughtIpausingonemomenttowatchthebroadglareinthestreetandhearthesoundsofthetinklingglasseswithinButgoonIshmaelsaidIatlastdontyouheargetawayfrombeforethedooryourpatchedbootsarestoppingthewaySoonIwentInowbyinstinctfollowedthestreetsthattookmewaterwardfortheredoubtlesswerethecheapestifnotthecheeriestinnsSuchdrearystreetsblocksofblacknessnothousesoneitherhandandhereandthereacandlelikeacandlemovingaboutinatombAtthishourofthenightofthelastdayoftheweekthatquarterofthetownprovedallbutdesertedButpresentlyIcametoasmokylightproceedingfromalowwidebuildingthedoorofwhichstoodinvitinglyopenIthadacarelesslookasifitweremeantfortheusesofthepublicsoenteringthefirstthingIdidwastostumbleoveranashboxintheporchHathoughtIhaastheflyingparticlesalmostchokedmearetheseashesfromthatdestroyedcityGomorrahButTheCrossedHarpoonsandTheSwordFishthisthenmustneedsbethesignofTheTrapHoweverIpickedmyselfupandhearingaloudvoicewithinpushedonandopenedasecondinteriordoorItseemedthegreatBlackParliamentsittinginTophetAhundredblackfacesturnedroundintheirrowstopeerandbeyondablackAngelofDoomwasbeatingabookinapulpitItwasanegrochurchandthepreacherstextwasabouttheblacknessofdarknessandtheweepingandwailingandteethgnashingthereHaIshmaelmutteredIbackingoutWretchedentertainmentatthesignofTheTrapMovingonIatlastcametoadimsortoflightnotfarfromthedocksandheardaforlorncreakingintheairandlookingupsawaswingingsignoverthedoorwithawhitepaintinguponitfaintlyrepresentingatallstraightjetofmistysprayandthesewordsunderneathTheSpouterInnPeterCoffinCoffinSpouterRatherominousinthatparticularconnexionthoughtIButitisacommonnameinNantuckettheysayandIsupposethisPeterhereisanemigrantfromthereAsthelightlookedsodimandtheplaceforthetimelookedquietenoughandthedilapidatedlittlewoodenhouseitselflookedasifitmighthavebeencartedherefromtheruinsofsomeburntdistrictandastheswingingsignhadapovertystrickensortofcreaktoitIthoughtthatherewastheveryspotforcheaplodgingsandthebestofpeacoffeeItwasaqueersortofplaceagableendedoldhouseonesidepalsiedasitwereandleaningoversadlyItstoodonasharpbleakcornerwherethattempestuouswindEuroclydonkeptupaworsehowlingthaneveritdidaboutpoorPaulstossedcraftEuroclydonneverthelessisamightypleasantzephyrtoanyoneindoorswithhisfeetonthehobquietlytoastingforbedInjudgingofthattempestuouswindcalledEuroclydonsaysanoldwriterofwhoseworksIpossesstheonlycopyextantitmakethamarvellousdifferencewhetherthoulookestoutatitfromaglasswindowwherethefrostisallontheoutsideorwhetherthouobservestitfromthatsashlesswindowwherethefrostisonbothsidesandofwhichthewightDeathistheonlyglazierTrueenoughthoughtIasthispassageoccurredtomymindoldblackletterthoureasonestwellYestheseeyesarewindowsandthisbodyofmineisthehouseWhatapitytheydidntstopupthechinksandthecranniesthoughandthrustinalittlelinthereandthereButitstoolatetomakeanyimprovementsnowTheuniverseisfinishedthecopestoneisonandthechipswerecartedoffamillionyearsagoPoorLazarustherechatteringhisteethagainstthecurbstoneforhispillowandshakingoffhistatterswithhisshiveringshemightplugupbothearswithragsandputacorncobintohismouthandyetthatwouldnotkeepoutthetempestuousEuroclydonEuroclydonsaysoldDivesinhisredsilkenwrapperhehadaredderoneafterwardspoohpoohWhatafinefrostynighthowOrionglitterswhatnorthernlightsLetthemtalkoftheirorientalsummerclimesofeverlastingconservatoriesgivemetheprivilegeofmakingmyownsummerwithmyowncoalsButwhatthinksLazarusCanhewarmhisbluehandsbyholdingthemuptothegrandnorthernlightsWouldnotLazarusratherbeinSumatrathanhereWouldhenotfarratherlayhimdownlengthwisealongthelineoftheequatoryeayegodsgodowntothefierypititselfinordertokeepoutthisfrostNowthatLazarusshouldliestrandedthereonthecurbstonebeforethedoorofDivesthisismorewonderfulthanthatanicebergshouldbemooredtooneoftheMoluccasYetDiveshimselfhetooliveslikeaCzarinanicepalacemadeoffrozensighsandbeingapresidentofatemperancesocietyheonlydrinksthetepidtearsoforphansButnomoreofthisblubberingnowwearegoingawhalingandthereisplentyofthatyettocomeLetusscrapetheicefromourfrostedfeetandseewhatsortofaplacethisSpoutermaybeCHAPTERTheSpouterInnEnteringthatgableendedSpouterInnyoufoundyourselfinawidelowstragglingentrywitholdfashionedwainscotsremindingoneofthebulwarksofsomecondemnedoldcraftOnonesidehungaverylargeoilpaintingsothoroughlybesmokedandeverywaydefacedthatintheunequalcrosslightsbywhichyouviewedititwasonlybydiligentstudyandaseriesofsystematicvisitstoitandcarefulinquiryoftheneighborsthatyoucouldanywayarriveatanunderstandingofitspurposeSuchunaccountablemassesofshadesandshadowsthatatfirstyoualmostthoughtsomeambitiousyoungartistinthetimeoftheNewEnglandhagshadendeavoredtodelineatechaosbewitchedButbydintofmuchandearnestcontemplationandoftrepeatedponderingsandespeciallybythrowingopenthelittlewindowtowardsthebackoftheentryyouatlastcometotheconclusionthatsuchanideahoweverwildmightnotbealtogetherunwarrantedButwhatmostpuzzledandconfoundedyouwasalonglimberportentousblackmassofsomethinghoveringinthecentreofthepictureoverthreebluedimperpendicularlinesfloatinginanamelessyeastAboggysoggysquitchypicturetrulyenoughtodriveanervousmandistractedYetwasthereasortofindefinitehalfattainedunimaginablesublimityaboutitthatfairlyfrozeyoutoittillyouinvoluntarilytookanoathwithyourselftofindoutwhatthatmarvellouspaintingmeantEverandanonabrightbutalasdeceptiveideawoulddartyouthroughItstheBlackSeainamidnightgaleItstheunnaturalcombatofthefourprimalelementsItsablastedheathItsaHyperboreanwintersceneItsthebreakingupoftheiceboundstreamofTimeButatlastallthesefanciesyieldedtothatoneportentoussomethinginthepicturesmidstTHAToncefoundoutandalltherestwereplainButstopdoesitnotbearafaintresemblancetoagiganticfisheventhegreatleviathanhimself".ToUpper();
         private char[] alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
         private string cyphrotext = "";
         private Dictionary<string, double> threegramIndexes = new Dictionary<string, double>();
-        private double expectedIndex = -5.899951364365705;
+        private double expectedIndex = -3.5939192291735513;
         public Genetic()
         {
             ReadThreegrams();
             cyphrotext = File.ReadAllText(@".\..\..\..\text3.txt");
 
+            //the next one command can be used to generate expectedIndex based on first 3 
+            //chapters of moby dick
+            //expectedIndex = GetThreegramsIndex(test);
         }
+
+        /// <summary>
+        /// Read all etalon 3-grams from "3grams.txt" and make threegramIndexes from it
+        /// </summary>
         public void ReadThreegrams()
         {
             Dictionary<string, decimal> threegramsCounts = new Dictionary<string, decimal>();
@@ -37,9 +45,15 @@ namespace Lab1
             {
                 double count = Decimal.ToDouble(Decimal.Divide(keyValue.Value, sum));
                 threegramIndexes.Add(keyValue.Key, Math.Log10(count));
+                //Console.WriteLine(keyValue + "   " + Math.Log10(count) + "   ");
             }
         }
 
+        /// <summary>
+        /// Get 3-gram index for text
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public double GetThreegramsIndex(string text)
         {
             double index = 0;
@@ -47,51 +61,52 @@ namespace Lab1
             {
                 index+= threegramIndexes[text.Substring(i, 3)];
             }
-            return index;
+            return index/(text.Length -2);
         }
 
-        private double EstimateBasedOfThreegrams(string populationItem)
+        /// <summary>
+        /// estimate individual using 3-gram indexes
+        /// </summary>
+        /// <param name="populationItem"></param>
+        /// <returns></returns>
+        private double EstimateBasedOnThreegrams(string populationItem)
         {
             double index = GetThreegramsIndex(DecryptSubstitution(cyphrotext, populationItem));
             double estimation = Math.Abs(index - expectedIndex);
             return estimation;
         }
 
-        private Dictionary<string, decimal> CountThreegramsPercents(List<string> threegrams)
-        {
-            Dictionary<string, decimal> counts = new Dictionary<string, decimal>();
-            for(int i = 0; i < threegrams.Count; i++)
-            {
-                if (!counts.ContainsKey(threegrams[i]))
-                {
-                    int count = threegrams.Count(x => x == threegrams[i]);
-                    counts.Add(threegrams[i], ((decimal)count) / threegrams.Count);
-                }
-            }
-            return counts;
-        }
-
+        /// <summary>
+        /// Decryptes cybertext using genetic algorithm
+        /// </summary>
+        /// <returns></returns>
         public string Decrypt()
         {
             int generation = 0;
             List<string> population = GetFirstPopulation(1000);
             string best = GetBest(population, 1)[0];
-            while(EstimateBasedOfThreegrams(best) >= 0.05)
+            while(EstimateBasedOnThreegrams(best) >= 0.12)
             { 
-                Console.WriteLine(generation);
+                //Console.WriteLine(generation);
                 List<string> bestFromPopulation = GetBest(population, 500);
                 List<string> children = Crossing(bestFromPopulation);
                 MutatePopulation(children);
                 population = children;
                 generation++;
-                best = GetBest(population, 1)[0];
-                Console.WriteLine("estimation = " + EstimateBasedOfThreegrams(best));
-                Console.WriteLine(DecryptSubstitution(cyphrotext, best));
+               // best = GetBest(population, 1)[0];
+                //Console.WriteLine("estimation = " + EstimateBasedOnThreegrams(best));
+                //Console.WriteLine(DecryptSubstitution(cyphrotext, best));
             }
             string decrypted = DecryptSubstitution(cyphrotext, GetBest(population, 1)[0]);
             return decrypted;
         }
 
+        /// <summary>
+        /// Decryptes substitution cipher
+        /// </summary>
+        /// <param name="cipherText"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private string DecryptSubstitution(string cipherText, string key)
         {
             char[] chars = new char[cipherText.Length];
@@ -106,6 +121,10 @@ namespace Lab1
             return new string(chars);
         }
 
+        /// <summary>
+        /// Gets item for first population
+        /// </summary>
+        /// <returns></returns>
         private string GetFirstPopulationItem()
         {
             StringBuilder item = new StringBuilder();
@@ -113,6 +132,7 @@ namespace Lab1
             char letter;
             for (int i = 0; i < alphabet.Length; i++)
             {
+                //there shouldn`t be one letter twice
                 do
                 {
                     int index = random.Next(alphabet.Length);
@@ -123,6 +143,11 @@ namespace Lab1
             return item.ToString();
         }
 
+        /// <summary>
+        /// Gets first population for genetic algorithm
+        /// </summary>
+        /// <param name="populationLength"></param>
+        /// <returns></returns>
         private List<string> GetFirstPopulation(int populationLength)
         {
             List<string> population = new List<string>();
@@ -134,21 +159,28 @@ namespace Lab1
             return population;
         }
 
-        private double EstimatePopulationItem(string populationItem)
-        {
-            return TextEstimator.Chi2(DecryptSubstitution(cyphrotext, populationItem));
-        }
-
+        /// <summary>
+        /// Get estimates for population using 3-grams 
+        /// </summary>
+        /// <param name="population"></param>
+        /// <returns></returns>
         private List<double> EstimatePopulation(List<string> population)
         {
             List<double> estimates = new List<double>();
             foreach (var item in population)
             {
-                estimates.Add(EstimateBasedOfThreegrams(item));
+                estimates.Add(EstimateBasedOnThreegrams(item));
             }
             return estimates;
         }
 
+        /// <summary>
+        /// Get the best n individuals from population
+        /// where n is aliveCount
+        /// </summary>
+        /// <param name="population"></param>
+        /// <param name="aliveCount"></param>
+        /// <returns></returns>
         private List<string> GetBest(List<string> population, int aliveCount)
         {
             List<string> bestItems = new List<string>();
@@ -163,6 +195,11 @@ namespace Lab1
             return bestItems;
         }
 
+        /// <summary>
+        /// Get index of minimal element in list
+        /// </summary>
+        /// <param name="list"></param>
+        /// <returns></returns>
         private int GetMinIndex(List<double> list)
         {
             int index = 0;
@@ -179,7 +216,7 @@ namespace Lab1
         }
 
         /// <summary>
-        /// bestFromPopulation have to be even
+        /// make as much children as parents and add them into population
         /// </summary>
         /// <param name="bestFromPopulation"></param>
         /// <returns></returns>
@@ -195,17 +232,33 @@ namespace Lab1
                     index2 = random.Next(bestFromPopulation.Count);
                 childs.Add(Cross(bestFromPopulation[index1], bestFromPopulation[index2]));
             }
-            return childs;
+            bestFromPopulation.AddRange(childs);
+            return bestFromPopulation;
         }
 
+        /// <summary>
+        /// Mutate every in individual with 20% probability
+        /// </summary>
+        /// <param name="population"></param>
         private void MutatePopulation(List<string> population)
         {
             for (int i = 0; i < population.Count; i++)
             {
-                population[i] = Mutate(population[i]);
+                Random random = new Random();
+
+                int rnd = random.Next(100);
+                if (rnd <= 10)
+                {
+                    population[i] = Mutate(population[i]);
+                }
             }
         }
 
+        /// <summary>
+        /// Mutate individual by swap 2 elements inside it
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private string Mutate(string item)
         {
             Random random = new Random();
@@ -215,6 +268,13 @@ namespace Lab1
             return item;
         }
 
+        /// <summary>
+        /// swap chars in string
+        /// </summary>
+        /// <param name="index1"></param>
+        /// <param name="index2"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
         private string Swap(int index1, int index2, string item)
         {
             StringBuilder sb = new StringBuilder(item);
@@ -224,6 +284,12 @@ namespace Lab1
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Make child from 2 parents. Child have gene from mom or dad randomly
+        /// </summary>
+        /// <param name="firstParent"></param>
+        /// <param name="secondParent"></param>
+        /// <returns></returns>
         private string Cross(string firstParent, string secondParent)
         {
             StringBuilder child = new StringBuilder();
@@ -258,6 +324,15 @@ namespace Lab1
            return child.ToString();
         }
 
+        /// <summary>
+        /// This function is used when child contains firstParent[index] and secondParent[index]. 
+        /// Than we recursively make another dicisions in past
+        /// </summary>
+        /// <param name="child"></param>
+        /// <param name="firstParent"></param>
+        /// <param name="secondParent"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
         private StringBuilder MakeAnotherDecisionInPast(StringBuilder child, string firstParent, string secondParent, int index)
         {
             if (!child.ToString().Contains(firstParent[index]))
@@ -269,19 +344,6 @@ namespace Lab1
             child = MakeAnotherDecisionInPast(child, firstParent, secondParent, index1);
             child[index1] = firstParent[index1];
             return child;
-        }
-        private bool GetNotContainingLetter(string key, out char letter)
-        {
-            foreach (var let in alphabet)
-            {
-                if (!key.Contains(let))
-                {
-                    letter = let;
-                    return true;
-                }
-            }
-            letter = alphabet[0];
-            return false;
         }
     }
 }
