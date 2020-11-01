@@ -17,9 +17,10 @@ namespace Lab1
             var decrypted3 = Task3Decryptor.Decrypt1_3();
             Console.WriteLine(decrypted3);*/
             Genetic genetic = new Genetic();
-            //var threegrams = genetic.ParseThreegrams(File.ReadAllText((@".\..\..\..\text3.txt")));
+            //genetic.ParseThreegrams(File.ReadAllText((@".\..\..\..\text3.txt")));
             string decrypted4 = genetic.Decrypt();
             Console.WriteLine(decrypted4);
+            //genetic.ReadThreegrams();
         }
 
         public static string Decrypt1_2()

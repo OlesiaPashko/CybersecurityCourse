@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Lab1
@@ -10,58 +12,83 @@ namespace Lab1
     public class Genetic
     {
         private char[] alphabet = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
-        private Dictionary<string, decimal> threegrams = new Dictionary<string, decimal>();
+        private string cyphrotext = "";
+        private Dictionary<string, double> threegramIndexes = new Dictionary<string, double>();
+        private double expectedIndex = -5.899951364365705;
+        public Genetic()
+        {
+            ReadThreegrams();
+            cyphrotext = File.ReadAllText(@".\..\..\..\text3.txt");
 
+        }
         public void ReadThreegrams()
         {
+            Dictionary<string, decimal> threegramsCounts = new Dictionary<string, decimal>();
+            decimal sum = 0;
             string[] text = File.ReadAllLines(@".\..\..\..\3grams.txt");
             foreach(var line in text)
             {
                 string key = line.Substring(0, 3);
-                string value = line.Substring(5, line.Length - 5);
-                threegrams.Add(key.ToUpper(), decimal.Parse(value));
+                decimal value = decimal.Parse(line.Substring(5, line.Length - 5));
+                threegramsCounts.Add(key.ToUpper(), value);
+                sum += value;
+            }
+            foreach(var keyValue in threegramsCounts)
+            {
+                double count = Decimal.ToDouble(Decimal.Divide(keyValue.Value, sum));
+                threegramIndexes.Add(keyValue.Key, Math.Log10(count));
             }
         }
 
-        public List<string> ParseThreegrams(string text)
+        public double GetThreegramsIndex(string text)
         {
-            List<string> threegrams = new List<string>();
+            double index = 0;
             for(int i = 0; i < text.Length-2; i++)
             {
-                threegrams.Add(text.Substring(i, 3));
+                index+= threegramIndexes[text.Substring(i, 3)];
             }
-            return threegrams;
+            return index;
         }
 
-        private decimal EstimateBasedOfThreegrams(string populationItem)
+        private double EstimateBasedOfThreegrams(string populationItem)
         {
-            List<string> threegrams = ParseThreegrams(DecryptSubstitution(File.ReadAllText(@".\..\..\..\text3.txt"), populationItem));
-            decimal estimation = 0;
-            foreach(var threegram in threegrams)
-            {
-                estimation += this.threegrams[threegram];
-            }
-            Console.WriteLine("estimation = " + estimation);
+            double index = GetThreegramsIndex(DecryptSubstitution(cyphrotext, populationItem));
+            double estimation = Math.Abs(index - expectedIndex);
             return estimation;
+        }
+
+        private Dictionary<string, decimal> CountThreegramsPercents(List<string> threegrams)
+        {
+            Dictionary<string, decimal> counts = new Dictionary<string, decimal>();
+            for(int i = 0; i < threegrams.Count; i++)
+            {
+                if (!counts.ContainsKey(threegrams[i]))
+                {
+                    int count = threegrams.Count(x => x == threegrams[i]);
+                    counts.Add(threegrams[i], ((decimal)count) / threegrams.Count);
+                }
+            }
+            return counts;
         }
 
         public string Decrypt()
         {
             int generation = 0;
-            string text = File.ReadAllText(@".\..\..\..\text3.txt");
-            ReadThreegrams();
             List<string> population = GetFirstPopulation(1000);
-            do
-            {
+            string best = GetBest(population, 1)[0];
+            while(EstimateBasedOfThreegrams(best) >= 0.05)
+            { 
                 Console.WriteLine(generation);
-                List<string> bestFromPopulation = GetBest(population, 10);
+                List<string> bestFromPopulation = GetBest(population, 500);
                 List<string> children = Crossing(bestFromPopulation);
                 MutatePopulation(children);
                 population = children;
                 generation++;
-                Console.WriteLine(DecryptSubstitution(text, GetBest(population, 1)[0]));
-            } while (generation < 1000);
-            string decrypted = DecryptSubstitution(text, GetBest(population, 1)[0]);
+                best = GetBest(population, 1)[0];
+                Console.WriteLine("estimation = " + EstimateBasedOfThreegrams(best));
+                Console.WriteLine(DecryptSubstitution(cyphrotext, best));
+            }
+            string decrypted = DecryptSubstitution(cyphrotext, GetBest(population, 1)[0]);
             return decrypted;
         }
 
@@ -109,12 +136,12 @@ namespace Lab1
 
         private double EstimatePopulationItem(string populationItem)
         {
-            return TextEstimator.Chi2(DecryptSubstitution(File.ReadAllText(@".\..\..\..\text3.txt"), populationItem));
+            return TextEstimator.Chi2(DecryptSubstitution(cyphrotext, populationItem));
         }
 
-        private List<decimal> EstimatePopulation(List<string> population)
+        private List<double> EstimatePopulation(List<string> population)
         {
-            List<decimal> estimates = new List<decimal>();
+            List<double> estimates = new List<double>();
             foreach (var item in population)
             {
                 estimates.Add(EstimateBasedOfThreegrams(item));
@@ -125,26 +152,26 @@ namespace Lab1
         private List<string> GetBest(List<string> population, int aliveCount)
         {
             List<string> bestItems = new List<string>();
-            List<decimal> estimates = EstimatePopulation(population);
+            List<double> estimates = EstimatePopulation(population);
             for (int i = 0; i < aliveCount; i++)
             {
-                int maxIndex = GetMaxIndex(estimates);
+                int minIndex = GetMinIndex(estimates);
 
-                bestItems.Add(population[maxIndex]);
-                estimates.RemoveAt(maxIndex);
+                bestItems.Add(population[minIndex]);
+                estimates.RemoveAt(minIndex);
             }
             return bestItems;
         }
 
-        private int GetMaxIndex(List<decimal> list)
+        private int GetMinIndex(List<double> list)
         {
             int index = 0;
-            decimal max = decimal.MinValue;
+            double min = double.MaxValue;
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i] > max)
+                if (list[i] < min)
                 {
-                    max = list[i];
+                    min = list[i];
                     index = i;
                 }
             }
@@ -159,10 +186,14 @@ namespace Lab1
         private List<string> Crossing(List<string> bestFromPopulation)
         {
             List<string> childs = new List<string>();
-            for (int i = 1; i < bestFromPopulation.Count; i += 2)
+            for (int i = 1; i < bestFromPopulation.Count * 2; i++)
             {
-                childs.Add(Cross(bestFromPopulation[i - 1], bestFromPopulation[i]));
-                childs.Add(Cross(bestFromPopulation[i - 1], bestFromPopulation[i]));
+                Random random = new Random();
+                int index1 = random.Next(bestFromPopulation.Count);
+                int index2 = random.Next(bestFromPopulation.Count);
+                while(index1 == index2)
+                    index2 = random.Next(bestFromPopulation.Count);
+                childs.Add(Cross(bestFromPopulation[index1], bestFromPopulation[index2]));
             }
             return childs;
         }
@@ -201,42 +232,44 @@ namespace Lab1
             {
                 int parentNumber = random.Next(2);
                 if (child.ToString().Contains(firstParent[i]) && child.ToString().Contains(secondParent[i]))
-                    continue;
+                {
+                    child = MakeAnotherDecisionInPast(child, firstParent, secondParent, i);
+                }
+
+                if (child.ToString().Contains(firstParent[i]))
+                {
+                    child.Append(secondParent[i]);
+                }
+                else if (child.ToString().Contains(secondParent[i]))
+                {
+                    child.Append(firstParent[i]);
+                }
                 else if (parentNumber == 0)
                 {
-                    if (child.ToString().Contains(firstParent[i]))
-                    {
-                        child.Append(secondParent[i]);
-                    }
-                    else
-                    {
-                        child.Append(firstParent[i]);
-                    }
+                    child.Append(firstParent[i]);
+                    
                 }
                 else
                 {
-                    if (child.ToString().Contains(secondParent[i]))
-                    {
-                        child.Append(firstParent[i]);
-                    }
-                    else
-                    {
-                        child.Append(secondParent[i]);
-                    }
+                    child.Append(secondParent[i]);
                 }
             }
 
-            char notHappenedLetter;
-            bool keyIsNotFull = GetNotContainingLetter(child.ToString(), out notHappenedLetter);
-            while (keyIsNotFull)
-            {
-                child.Append(notHappenedLetter);
-                keyIsNotFull = GetNotContainingLetter(child.ToString(), out notHappenedLetter);
-            } 
-            return child.ToString();
+           return child.ToString();
         }
 
-
+        private StringBuilder MakeAnotherDecisionInPast(StringBuilder child, string firstParent, string secondParent, int index)
+        {
+            if (!child.ToString().Contains(firstParent[index]))
+            {
+                return child;
+            }
+            int index1 = child.ToString().IndexOf(firstParent[index]);
+            child[index1] = ' ';
+            child = MakeAnotherDecisionInPast(child, firstParent, secondParent, index1);
+            child[index1] = firstParent[index1];
+            return child;
+        }
         private bool GetNotContainingLetter(string key, out char letter)
         {
             foreach (var let in alphabet)
