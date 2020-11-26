@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Lab1
@@ -15,17 +16,26 @@ namespace Lab1
         {
             List<double> decriptedChi2s = new List<double>();
             List<string> outTexts = new List<string>();
+
+            List<(double, string)> textChi2 = new List<(double, string)>(); 
             for (int i = 0; i < 256; i++)
             {
+
                 StringBuilder outText = new StringBuilder();
                 foreach (char ch in text)
                 {
                     outText.Append((char)(ch ^ i));
                 }
-                decriptedChi2s.Add(TextEstimator.Chi2(outText.ToString()));
+                var chi2 = TextEstimator.Chi2(outText.ToString());
+                decriptedChi2s.Add(chi2);
+                textChi2.Add((chi2, outText.ToString()));
                 outTexts.Add(outText.ToString());
             }
-
+            textChi2 = textChi2.OrderByDescending(x => x.Item1).ToList();
+            foreach(var pair in textChi2)
+            {
+                Console.WriteLine(pair.Item1 + "  " + pair.Item2);
+            }
             int minIndex = GetMinIndex(decriptedChi2s);
             return outTexts[minIndex];
         }

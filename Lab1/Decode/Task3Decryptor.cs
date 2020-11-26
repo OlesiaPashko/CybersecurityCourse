@@ -22,7 +22,7 @@ namespace Lab1
                     .Select(x => Convert.ToByte(text2.Substring(x, 2), 16))
                     .ToArray();
 
-            //get key length using
+            //get key length
             int keyLength = GetKeyLength(textBytes, 0.01);
             List<List<byte>> slices = GetSlicesByKeyLength(keyLength, textBytes);
             List<string> decryptedSlices = new List<string>();
