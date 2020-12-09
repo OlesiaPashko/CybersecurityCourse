@@ -48,14 +48,68 @@ namespace Lab3
             return casinoResponse;
         }
 
-        static BigInteger modInverse(BigInteger a, BigInteger prime)
+        public static (BigInteger, BigInteger) GetExtendedGcd(BigInteger a, BigInteger b)
         {
-            a = a % prime;
+            BigInteger oldR = a;
+            BigInteger r = b;
+            BigInteger oldS = 1;
+            BigInteger s = 0;
+            BigInteger oldT = 0;
+            BigInteger t = 1; 
+            while (r != 0)
+            {
+                var quotient = BigInteger.Divide(oldR, r);//divide without reminder
+                oldR = r;
+                r = oldR - quotient * r;
+                oldS = s;
+                s = oldS - quotient * s;
+                oldT = t;
+                t = oldT - quotient * t;
+            }
+
+            return (oldS, oldT);
+        }
+
+        public static BigInteger GetPositiveMod(BigInteger a, BigInteger b)
+        {
+            return a < 0 ? b - BigInteger.Abs(a) % b : a % b;
+        }
+
+        static BigInteger GetModInverse(BigInteger a, BigInteger m)
+        {
+            if (m == 1) return 0;
+            BigInteger m0 = m;
+            (BigInteger x, BigInteger y) = (1, 0);
+
+            while (a > 1)
+            {
+                BigInteger q = a / m;
+                (a, m) = (m, a % m);
+                (x, y) = (y, x - q * y);
+            }
+            return x < 0 ? x + m0 : x;
+            //(BigInteger, BigInteger) extendedGcd = GetExtendedGcd(a, prime);
+            //return extendedGcd.Item1 == 1 ? GetPositiveMod(extendedGcd.Item2, prime) : BigInteger.Zero;
+            /*a = a % prime;
             for (BigInteger x = 1; x < prime; x++)
                 if ((a * x) % prime == 1)
                     return x;
 
-            return -1;
+            return -1;*/
+        }
+
+        static BigInteger GetNextNumber(BigInteger previousNumber, BigInteger a, BigInteger c)
+        {
+            BigInteger m = BigInteger.Pow(2, 32);
+            BigInteger next = (previousNumber * a + c) % m;
+            if (BigInteger.Abs(next) > BigInteger.Pow(2, 31))
+            {
+                return next > 0 ? next - m : next + m;
+            }
+            else
+            {
+                return next;
+            }
         }
 
         static void Main()
@@ -74,21 +128,20 @@ namespace Lab3
 
            // BigInteger a = 3, m = 11;
 
-           //Console.WriteLine(modInverse(a, m));
+           //Console.WriteLine(GetModInverse(a, m));
             /*BigInteger n = BigInteger.Pow(2, 32);
             BigInteger m = GetM(numbers.ToArray(), n);
             BigInteger increment = GetIncrement(numbers.ToArray(), n, m);*/
 
             Tuple<BigInteger, BigInteger> coofs = Crack(numbers);
-            while(coofs.Item1 == 0&&coofs.Item2 == 0)
-                coofs = Crack(numbers);
-            BigInteger m = coofs.Item1;
-            BigInteger increment = coofs.Item2;
-            checked
-            {
-                //try
-                //{
-                    Console.WriteLine((((int)(numbers[0] * m + increment)) % m) + "  =  " + numbers[1]);
+            //while(coofs.Item1 == 0&&coofs.Item2 == 0)
+                //coofs = Crack(numbers);
+            //BigInteger m = coofs.Item1;
+            //BigInteger increment = coofs.Item2;
+            //BigInteger a = 1664525, c = 1013904223;
+            Console.WriteLine(GetNextNumber(numbers[1], coofs.Item1, coofs.Item2));
+            Console.WriteLine(numbers[1]);
+                //Console.WriteLine(numbers[2]);
                     //Console.WriteLine((int)(object)(numbers[1] * m + increment) % m + "  =  " + numbers[2]);
                     /*Console.WriteLine((int)(numbers[2] * m + increment) % m + "  =  " + numbers[3]);
                     Console.WriteLine((int)(numbers[3] * m + increment) % m + "  =  " + numbers[4]);
@@ -106,7 +159,7 @@ namespace Lab3
                /// {
 
                 //}
-            }
+            //}
             //Console.WriteLine(GetNextNumber(numbers[numbers.Count - 2], n, m, increment));*/
         }
 
@@ -150,9 +203,9 @@ namespace Lab3
 
             List<BigInteger> diffs = GetDifferencesList(sample.ToArray(), m);
 
-            //BigInteger inv = modInverse(diffs[0], BigInteger.Pow(2,32));
+            BigInteger inv = GetModInverse(diffs[0], BigInteger.Pow(2,32));
 
-            BigInteger a = 1664525;//(diffs[1] * inv) % m;
+            BigInteger a = (diffs[1] * inv) % m;//1664525;
             //Console.WriteLine(a);
 
             List<BigInteger> obs_diffs = CalculateObservedDifferencesList(diffs, a, m);
@@ -184,7 +237,8 @@ namespace Lab3
             return (prevNumber * m + a) % n;
         }
 
-        private static BigInteger GetIncrement(BigInteger[] numbers, BigInteger n, BigInteger m) {
+        private static BigInteger GetIncrement(BigInteger[] numbers, BigInteger n, BigInteger m) 
+    {
             BigInteger increment = (n - ((numbers[0] * m) % n) + numbers[1]) % n;
             return increment;
         }
