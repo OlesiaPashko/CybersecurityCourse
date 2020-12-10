@@ -10,15 +10,35 @@ namespace Lab2
         static void Main()
         {
             string[] lines = File.ReadAllLines(@".\..\..\..\..\text.txt");
-            string[] theMostCommonWords = File.ReadAllLines(@".\..\..\..\..\TheMostCommonWords.txt");
             var lineBytes = lines.Select(x=>ToByteArrayFromx16(x)).ToList();
-            var xored = XOR(lineBytes[0], lineBytes[1]);
-            for (int i = 0; i < 1 + xored.Length - theMostCommonWords[3].Length; i++)
-            {
-                Console.WriteLine(i + "     " + ToString(XOR(ToBytes(theMostCommonWords[3]), SubArray(xored, i, ToBytes(theMostCommonWords[3]).Length))));
-            }
+            Console.WriteLine("What lines do you want to use?");
+            Console.Write("first - ");
+            int number1 = int.Parse(Console.ReadLine());
+            Console.Write("second - ");
+            int number2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("How many crib words do you wont to test?");
+            int cribWordsAmount = int.Parse(Console.ReadLine());
+            ToFindUsingDictionaryCribs(cribWordsAmount, lineBytes[number1], lineBytes[number2]);
         }
 
+
+
+        static void ToFindUsingDictionaryCribs(int cribsCount, byte[] message1, byte[] message2)
+        {
+            string[] theMostCommonWords = File.ReadAllLines(@".\..\..\..\..\TheMostCommonWords.txt");
+            for (int i = 0; i < cribsCount; i++)
+            {
+                string crib = theMostCommonWords[i];
+                Console.WriteLine("The crib word in " + crib);
+                var xored = XOR(message1, message2);
+                var bytesOfCrib = ToBytes(crib);
+                for (int j = 0; j < 1 + xored.Length - theMostCommonWords[3].Length; j++)
+                {
+                    Console.WriteLine("Skiped: " +j + "  , result:" + ToString(XOR(bytesOfCrib, SubArray(xored, j, bytesOfCrib.Length))));
+                }
+                Console.WriteLine("------------------------");
+             }
+        }
 
         public static byte[] SubArray(byte[] array, int head, int length)
         {
