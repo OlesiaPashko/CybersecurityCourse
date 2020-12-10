@@ -18,26 +18,41 @@ namespace Lab2
             int number2 = int.Parse(Console.ReadLine());
             Console.WriteLine("How many crib words do you wont to test?");
             int cribWordsAmount = int.Parse(Console.ReadLine());
-            ToFindUsingDictionaryCribs(cribWordsAmount, lineBytes[number1], lineBytes[number2]);
+            byte[] line1 = lineBytes[number1];
+            byte[] line2 = lineBytes[number2];
+            ToFindUsingDictionaryCribs(cribWordsAmount, line1, line2);
+            while (true) {
+                Console.WriteLine("Please enter your crib (the one that is most likely to work)");
+                string crib = Console.ReadLine();
+                ToFind(crib, line1, line2);
+                /*Console.WriteLine("Do you want to stop (Y/N)?");
+                string answer = Console.ReadLine();
+                if(answer.Trim() == "Y" || answer.Trim() == "y" || answer.Trim() == "Yes" || answer.Trim() == "yes")
+                {
+                    break;
+                }*/
+            }
         }
 
-
+        static void ToFind(string crib, byte[] message1, byte[] message2)
+        {
+            Console.WriteLine("The crib word is:  " + crib);
+            var xored = XOR(message1, message2);
+            var bytesOfCrib = ToBytes(crib);
+            for (int j = 0; j < 1 + xored.Length - crib.Length; j++)
+            {
+                Console.WriteLine("Skiped: " + j + "  , result:" + ToString(XOR(bytesOfCrib, SubArray(xored, j, bytesOfCrib.Length))));
+            }
+            Console.WriteLine("------------------------");
+        }
 
         static void ToFindUsingDictionaryCribs(int cribsCount, byte[] message1, byte[] message2)
         {
             string[] theMostCommonWords = File.ReadAllLines(@".\..\..\..\..\TheMostCommonWords.txt");
             for (int i = 0; i < cribsCount; i++)
             {
-                string crib = theMostCommonWords[i];
-                Console.WriteLine("The crib word in " + crib);
-                var xored = XOR(message1, message2);
-                var bytesOfCrib = ToBytes(crib);
-                for (int j = 0; j < 1 + xored.Length - theMostCommonWords[3].Length; j++)
-                {
-                    Console.WriteLine("Skiped: " +j + "  , result:" + ToString(XOR(bytesOfCrib, SubArray(xored, j, bytesOfCrib.Length))));
-                }
-                Console.WriteLine("------------------------");
-             }
+                ToFind(theMostCommonWords[i], message1, message2);
+            }
         }
 
         public static byte[] SubArray(byte[] array, int head, int length)
