@@ -9,32 +9,49 @@ namespace Lab2
     {
         static void Main()
         {
+            (byte[], byte[]) lines = AskLinesInUser();
+
+            ShowDictionaryCribsTest(lines);
+
+            ShowUserCribsTest(lines);
+        }
+
+
+        static void ShowUserCribsTest((byte[], byte[]) lines)
+        {
+            while (true)
+            {
+                Console.WriteLine("Please enter your crib (the one that is most likely to work)");
+                string crib = Console.ReadLine();
+                TryCrib(crib, lines.Item1, lines.Item2);
+            }
+        }
+
+        static void ShowDictionaryCribsTest((byte[], byte[]) lines)
+        {
+            Console.WriteLine("How many crib words do you wont to test?");
+            int cribWordsAmount = int.Parse(Console.ReadLine());
+            TryDictionaryCribs(cribWordsAmount, lines.Item1, lines.Item2);
+        }
+
+        static (byte[], byte[]) AskLinesInUser()
+        {
             string[] lines = File.ReadAllLines(@".\..\..\..\..\text.txt");
-            var lineBytes = lines.Select(x=>ToByteArrayFromx16(x)).ToList();
+            var lineBytes = lines.Select(x => ToByteArrayFromx16(x)).ToList();
+
             Console.WriteLine("What lines do you want to use?");
             Console.Write("first - ");
             int number1 = int.Parse(Console.ReadLine());
             Console.Write("second - ");
             int number2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("How many crib words do you wont to test?");
-            int cribWordsAmount = int.Parse(Console.ReadLine());
+
             byte[] line1 = lineBytes[number1];
             byte[] line2 = lineBytes[number2];
-            ToFindUsingDictionaryCribs(cribWordsAmount, line1, line2);
-            while (true) {
-                Console.WriteLine("Please enter your crib (the one that is most likely to work)");
-                string crib = Console.ReadLine();
-                ToFind(crib, line1, line2);
-                /*Console.WriteLine("Do you want to stop (Y/N)?");
-                string answer = Console.ReadLine();
-                if(answer.Trim() == "Y" || answer.Trim() == "y" || answer.Trim() == "Yes" || answer.Trim() == "yes")
-                {
-                    break;
-                }*/
-            }
+
+            return (line1, line2);
         }
 
-        static void ToFind(string crib, byte[] message1, byte[] message2)
+        static void TryCrib(string crib, byte[] message1, byte[] message2)
         {
             Console.WriteLine("The crib word is:  " + crib);
             var xored = XOR(message1, message2);
@@ -46,12 +63,12 @@ namespace Lab2
             Console.WriteLine("------------------------");
         }
 
-        static void ToFindUsingDictionaryCribs(int cribsCount, byte[] message1, byte[] message2)
+        static void TryDictionaryCribs(int cribsCount, byte[] message1, byte[] message2)
         {
             string[] theMostCommonWords = File.ReadAllLines(@".\..\..\..\..\TheMostCommonWords.txt");
             for (int i = 0; i < cribsCount; i++)
             {
-                ToFind(theMostCommonWords[i], message1, message2);
+                TryCrib(theMostCommonWords[i], message1, message2);
             }
         }
 
