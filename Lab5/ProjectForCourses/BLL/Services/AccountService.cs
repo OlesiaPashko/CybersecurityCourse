@@ -87,6 +87,7 @@ namespace BLL.Services
                     Success = false
                 };
             User userIdentity = new User { Email=userDTO.Email, FirstName = userDTO.FirstName, LastName = userDTO.LastName, UserName = userDTO.UserName};
+            
             var result = await _userManager.CreateAsync(userIdentity, userDTO.Password);
             if (!result.Succeeded)
                 return new AuthentificationResultDTO
@@ -95,24 +96,6 @@ namespace BLL.Services
                     Errors = result.Errors,
                     Success = false
                 };
-
-            /*var user = new User
-            {
-                UserName = "Admin",
-                Email = "admin@gmail.com",
-                FirstName = "Olesya",
-                LastName = "Pashko"
-            };
-            await _userManager.CreateAsync(user, "IAmAdmin1234");
-            if(await _roleManager.RoleExistsAsync("Admin"))
-            {
-                await _userManager.AddToRoleAsync(user, "Admin");
-            }*/
-            bool roleExists = await _roleManager.RoleExistsAsync("User");
-            if (roleExists)
-            {
-                await _userManager.AddToRoleAsync(userIdentity, "User");
-            }
             await _unitOfWork.CommitAsync();
             string token = await GetTokenAsync(userIdentity);
             return new AuthentificationResultDTO { Token = token, Errors = result.Errors, Success = result.Succeeded };

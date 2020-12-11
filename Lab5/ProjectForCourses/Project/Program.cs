@@ -19,11 +19,6 @@ namespace Project
         public static async Task Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
-           // using(var serviceScope = host.Services.CreateScope())
-            //{
-                /*MainInstaller mainInstaller = new MainInstaller();
-                await mainInstaller.MakeRoles(serviceScope);*/
-            //}
             await host.RunAsync();
         }
 
