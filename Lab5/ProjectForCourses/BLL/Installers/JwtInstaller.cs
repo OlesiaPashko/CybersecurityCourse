@@ -34,7 +34,7 @@ namespace BLL.Installers
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.Secret)),
                     ValidateIssuer = false,
                     ValidateAudience = false,
-                    RequireExpirationTime = false,
+                    RequireExpirationTime = true,
                     ValidateLifetime = true
 
                 };
