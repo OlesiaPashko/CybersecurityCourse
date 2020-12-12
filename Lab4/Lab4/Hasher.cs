@@ -12,8 +12,8 @@ namespace Lab4
         public void StoreHashes(List<string> passwords)
         {
            
-            //SavePasswordsHashes(passwords, "../../../md5PasswordHashes.csv", GetStringHashMD5);
-            //SavePasswordsHashes(passwords, "../../../sha1PasswordHashes.csv", GetStringHashSHA1);
+            SavePasswordsHashes(passwords, "../../../md5PasswordHashes.csv", GetStringHashMD5);
+            SavePasswordsHashes(passwords, "../../../sha1PasswordHashes.csv", GetStringHashSHA1);
             SavePasswordsHashes(passwords, "../../../BCryptPasswordHashes.csv", GetStringHashBCrypt);
         }
         private void SavePasswordsHashes(List<string> passwords, string filePath, Func<string, string> hashingFunction)

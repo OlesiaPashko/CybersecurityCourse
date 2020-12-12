@@ -17,18 +17,17 @@ namespace Lab4
             random = new Random();
         }
 
-        public List<string> GeneratePasswords(int passwordsAmount, int weakest100Percent, int weakest1MPercent, int randomPercent, int humanLikePercent)
+        public List<string> GeneratePasswords(int passwordsAmount, int weakest100Percent, int weakest1MPercent, int randomPercent)
         {
             List<string> passwords = new List<string>();
             for(int i = 0; i< passwordsAmount; i++)
             {
-                var percent = random.Next(100);
-                passwords.Add(GenerateBasedOnPercents(weakest100Percent, weakest1MPercent, randomPercent, humanLikePercent));
+                passwords.Add(GenerateBasedOnPercents(weakest100Percent, weakest1MPercent, randomPercent));
             }
             return passwords;
         }
 
-        private string GenerateBasedOnPercents(int weakest100Percent, int weakest1MPercent, int randomPercent, int humanLikePercent)
+        private string GenerateBasedOnPercents(int weakest100Percent, int weakest1MPercent, int randomPercent)
         {
             var percent = random.Next(100);
             int weakest100PercentLimit = weakest100Percent;
