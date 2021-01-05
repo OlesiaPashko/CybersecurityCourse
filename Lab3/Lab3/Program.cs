@@ -48,7 +48,7 @@ namespace Lab3
 
         static void Main()
         {
-            int id = 111155;
+            int id = 111115;
             CreateAccount(id);
             LCGCracker lCGCracker = new LCGCracker(client, id);
             lCGCracker.Crack();

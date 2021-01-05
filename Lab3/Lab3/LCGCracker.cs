@@ -69,8 +69,10 @@ namespace Lab3
                 Console.WriteLine($"casino/playLcg?id={id}&bet=1&number={num}");
                 casinoResponse = GetLCGNumber($"casino/playLcg?id={id}&bet=100&number={num}");
                 ShowLCGResponse(casinoResponse);
-                numbers[numbers.Count - 1] = casinoResponse == null ? numbers[numbers.Count - 1] : casinoResponse.RealNumber;
-            } while (casinoResponse == null || casinoResponse?.Account.Money < 1000000);
+                numbers.Add(casinoResponse.RealNumber);
+                if(casinoResponse.Message == "You lost this time")
+                    coefs = GetCoefs(numbers);
+            } while (casinoResponse.Account.Money < 1000000);
         }
 
         public long ModInverse(long a, long m)
@@ -91,10 +93,10 @@ namespace Lab3
         public LCGCoefs GetCoefs(List<long> numbers)
         {
             long modulus = (long)Math.Pow(2, 32);
-            long multiplier = (numbers[2] - numbers[1]) *
-                ModInverse((numbers[1] - numbers[0]), modulus)
+            long multiplier = (numbers[numbers.Count -1] - numbers[numbers.Count - 2]) *
+                ModInverse((numbers[numbers.Count - 2] - numbers[numbers.Count - 3]), modulus)
                 % modulus;
-            long increment = (numbers[1] - multiplier * numbers[0]) % modulus;
+            long increment = (numbers[numbers.Count - 2] - multiplier * numbers[numbers.Count - 3]) % modulus;
             return new LCGCoefs(modulus, multiplier, increment);
         }
 
