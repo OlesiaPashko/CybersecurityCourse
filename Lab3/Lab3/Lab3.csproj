@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MersenneTwister" Version="1.0.6" />
     <PackageReference Include="Nancy" Version="2.0.0" />
   </ItemGroup>
 

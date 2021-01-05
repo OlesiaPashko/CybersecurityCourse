@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MersenneTwister;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -48,10 +49,12 @@ namespace Lab3
 
         static void Main()
         {
-            int id = 111115;
+            int id = 111119;
             CreateAccount(id);
-            LCGCracker lCGCracker = new LCGCracker(client, id);
-            lCGCracker.Crack();
+            //LCGCracker lCGCracker = new LCGCracker(client, id);
+            //lCGCracker.Crack();
+            MTCracker mtCracker = new MTCracker(client, id);
+            mtCracker.Crack();
         }
 
 
