@@ -14,9 +14,6 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    
-
-    
     class Program
     {
         static HttpClient client = new HttpClient() { Timeout = TimeSpan.FromSeconds(10) };
@@ -49,7 +46,7 @@ namespace Lab3
 
         static void Main()
         {
-            int id = 10033;
+            int id = 100352;
             CreateAccount(id);
             //LCGCracker lCGCracker = new LCGCracker(client, id);
             //lCGCracker.Crack();

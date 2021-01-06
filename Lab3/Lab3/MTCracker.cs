@@ -48,9 +48,9 @@ namespace Lab3
             do
             {
                 MT = new MT19937();
-                seed++;
                 MT.init_genrand((ulong)seed);
                 number = (long)MT.genrand_int32();
+                seed++;
             } while (response.RealNumber != number);
 
             while (response.Account.Money < 1000000)
