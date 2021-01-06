@@ -49,47 +49,17 @@ namespace Lab3
 
         static void Main()
         {
-            int id = 111119;
+            int id = 10033;
             CreateAccount(id);
             //LCGCracker lCGCracker = new LCGCracker(client, id);
             //lCGCracker.Crack();
+            
             MTCracker mtCracker = new MTCracker(client, id);
             mtCracker.Crack();
+            
+            //BetterMTCracker betterMTCracker = new BetterMTCracker(client, id);
+            //betterMTCracker.Crack();
         }
 
-
-        
-
-       /* static async Task RunMtAsync()
-        {
-            List<string> realNumbers = new List<string>();
-            client.BaseAddress = new Uri("http://95.217.177.249/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-
-            try
-            {
-                for (BigInteger i = 0; i < 20; i++)
-                {
-                    BetCasinoResponse casinoResponse = new BetCasinoResponse();
-
-                    casinoResponse = GetLCGNumber("casino/playMt?id=200&bet=1&number=1");
-                    realNumbers.Add(casinoResponse.RealNumber.ToString());
-                    //ShowProduct(casinoResponse);
-                }
-                File.WriteAllLines(@"C:\Users\User\course4\CybersecurityCourse\Lab3\Lab3\realNumbersMt.txt", realNumbers.ToArray());
-                //foreach (var element in realNumbers)
-                //{
-                //  Console.Write(element + "  ");
-                //}
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            Console.ReadLine();
-        }*/
     }
 }

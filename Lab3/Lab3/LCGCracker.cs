@@ -62,7 +62,6 @@ namespace Lab3
             BetCasinoResponse casinoResponse = new BetCasinoResponse();
             do
             {
-                Thread.Sleep(500);
                 long num = (coefs.Multiplier * numbers[numbers.Count - 1] + coefs.Increment) % coefs.Modulus;
                 if (num > Int32.MaxValue || num < Int32.MinValue)
                     num = num > 0 ? num - coefs.Modulus : num + coefs.Modulus;
